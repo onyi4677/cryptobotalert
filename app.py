@@ -76,4 +76,11 @@ def home():
     return '✅ Crypto Alert Bot is Running on Render!'
 
 # Test Telegram alert on startup
-send_telegram_alert("✅ Test alert: Your crypto bot has
+send_telegram_alert("✅ Test alert: Your crypto bot has started successfully!")
+
+# Background monitoring
+threading.Thread(target=analyze_market, daemon=True).start()
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0',
