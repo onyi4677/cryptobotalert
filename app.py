@@ -17,7 +17,8 @@ COINS = ['ADAUSDT', 'HBARUSDT', 'ENAUSDT', 'SUIUSDT', 'COTIUSDT']
 # Binance API endpoint
 BINANCE_API = "https://api.binance.com/api/v3/klines"
 
-def send_telegram_alert(message):
+def send_telegram_alert(message# Test Telegram alert on startup
+send_telegram_alert("✅ Test alert: Your crypto bot is working!")):
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     data = {"chat_id": TELEGRAM_CHAT_ID, "text": message}
     try:
