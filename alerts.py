@@ -23,7 +23,7 @@ TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
 # Email config
 EMAIL_SENDER = "onyi4677@gmail.com"
-EMAIL_PASSWORD = "YOUR_GMAIL_APP_PASSWORD"  # Replace with your Gmail App Password
+EMAIL_PASSWORD = "lpaxeycnpwfrirdx"  # Replace with your Gmail App Password
 EMAIL_RECIPIENTS = ["onyi4677@gmail.com", "wfonyi@gmail.com"]
 
 # Google Sheets config
