@@ -1,10 +1,12 @@
-
 from flask import Flask
 from alerts import run_alerts
 
 app = Flask(__name__)
 
-@app.route("/", methods=["POST", "GET"])
-def main():
+@app.route("/")
+def run():
     run_alerts()
-    return "Alert sent", 200
+    return "✅ Crypto alert triggered!", 200
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
