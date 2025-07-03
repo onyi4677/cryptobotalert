@@ -47,3 +47,4 @@ if __name__ == "__main__":
     # Flask must listen on 0.0.0.0:8080 for Cloud Run
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port)
+    # Force rebuild
