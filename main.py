@@ -13,7 +13,11 @@ def home():
     return "CryptoBotAlert is running."
 
 # 🔔 Define your alert job here
-def crypto_alert_job():
+def crypto_alert_job(import telegram
+
+# Add this just inside crypto_alert_job()
+bot = telegram.Bot(token="8198543545:AAHe3bpRApOvX-CqFT4oWB-DdLFaeq4nc6U")
+bot.send_message(chat_id="7111651983", text="✅ Telegram test alert from CryptoBot")):
     try:
         # Example: fetch SUI/USDT price from Binance
         url = "https://api.binance.com/api/v3/ticker/price?symbol=SUIUSDT"
