@@ -1,54 +1,46 @@
 import os
 import threading
 import time
-import schedule
-import requests
 from flask import Flask
 
-# Initialize Flask app (required for Cloud Run)
+# Flask app setup for Cloud Run
 app = Flask(__name__)
 
 @app.route("/")
 def home():
     return "CryptoBotAlert is running."
 
-# 🔔 Define your alert job here
-def crypto_alert_job(import telegram
-
-# Add this just inside crypto_alert_job()
-bot = telegram.Bot(token="8198543545:AAHe3bpRApOvX-CqFT4oWB-DdLFaeq4nc6U")
-bot.send_message(chat_id="7111651983", text="✅ Telegram test alert from CryptoBot")):
+# 🔁 Scheduled alert job (test version)
+def crypto_alert_job():
     try:
-        # Example: fetch SUI/USDT price from Binance
-        url = "https://api.binance.com/api/v3/ticker/price?symbol=SUIUSDT"
-        response = requests.get(url)
-        data = response.json()
-        price = float(data["price"])
-        print(f"[ALERT CHECK] SUI/USDT price: {price}")
+        print("🔁 crypto_alert_job() is running...")
 
-        # 🚨 Example trigger condition
-        if price > 1.0:
-            print("[ALERT] SUI price is above $1.00!")
-            # TODO: Add your Telegram, Email, or SMS alert logic here
+        # Simulate each alert type for testing
+        print("📨 Sending Telegram alert...")
+        print("📧 Sending Email alert...")
+        print("📱 Sending SMS alert...")
+        print("📊 Logging to Google Sheet...")
 
     except Exception as e:
-        print(f"[ERROR] Failed to run alert job: {e}")
+        print(f"❌ ERROR in crypto_alert_job: {e}")
 
-# ⏱ Background scheduler thread
+# ⏱ Scheduler loop (runs every 5 minutes)
 def run_scheduler():
-    schedule.every(5).minutes.do(crypto_alert_job)
     while True:
-        schedule.run_pending()
-        time.sleep(1)
+        crypto_alert_job()
+        time.sleep(300)  # 5 minutes
 
-# 🚀 Start the app (required by Cloud Run)
+# 🚀 Start Flask app + scheduler (Cloud Run needs port 8080)
 if __name__ == "__main__":
-    # Start scheduler in background thread
+    print("✅ App starting...")
+
+    # Start background alert scheduler
     scheduler_thread = threading.Thread(target=run_scheduler)
     scheduler_thread.daemon = True
     scheduler_thread.start()
 
-    # Flask must listen on 0.0.0.0:8080 for Cloud Run
+    # Start Flask server (required for Cloud Run)
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port)
-    # Force rebuild
+
+# Test build trigger
