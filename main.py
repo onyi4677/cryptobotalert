@@ -4,12 +4,12 @@ from flask import Flask
 
 app = Flask(__name__)
 
-# 🔔 Crypto Alert Job – Sends Telegram message
+# 🔔 Telegram Alert
 def crypto_alert_job():
     try:
         print("🔁 START: crypto_alert_job() running...")
 
-        # TELEGRAM ALERT
+        # === TELEGRAM ALERT ===
         bot_token = "8198543545:AAHe3bpRApOvX-CqFT4oWB-DdLFaeq4nc6U"
         chat_id = "7111651983"
         message = "🚀 Crypto Alert Test: Your alert system is LIVE!"
@@ -23,15 +23,15 @@ def crypto_alert_job():
     except Exception as e:
         print(f"❌ ERROR in crypto_alert_job: {e}")
 
-# 🌐 HTTP route
+# 🌐 Main Route
 @app.route("/")
 def home():
-    print("✅ Flask route hit! Starting alert job.")
+    print("✅ Flask route hit! Running crypto_alert_job...")
     crypto_alert_job()
-    return "CryptoBotAlert is running."
+    return "CryptoBotAlert is running with Telegram."
 
 # 🔁 Cloud Run entry
 if __name__ == "__main__":
-    print("✅ App starting...")
+    print("🚀 App is starting...")
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port)
