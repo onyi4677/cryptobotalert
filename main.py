@@ -17,7 +17,7 @@ def crypto_alert_job():
 # Root route handles scheduled ping
 @app.route("/")
 def home():
-    crypto_alert_job()
+    crypto_alert_job()  # THIS LINE MUST BE INSIDE THIS FUNCTION
     return "CryptoBotAlert is running."
 
 # Required by Cloud Run
