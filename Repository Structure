@@ -1,0 +1,11 @@
+binance-scalper/
+├── config/
+│   ├── config.json
+│   └── secrets.example.json
+├── src/
+│   ├── bot.py
+│   ├── indicators.py
+│   ├── notifier.py
+│   └── requirements.txt
+├── .gitignore
+└── README.md
