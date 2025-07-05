@@ -1,0 +1,6 @@
+{
+  "pairs": ["SUIUSDT", "HBARUSDT", "ADAUSDT", "XLMUSDT", "XRPUSDT", "ENAUSDT"],
+  "timeframe": "5m",
+  "risk_percent": 0.5,
+  "reward_ratio": 1.5
+}
